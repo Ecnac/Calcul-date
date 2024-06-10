@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcul de la différence entre deux dates</title>
-</head>
-<body>
-    <h1>Calcul de la différence entre deux dates</h1>
-    <form id="dateForm">
-        <label for="date1">Date et heure de début:</label>
-        <input type="datetime-local" id="date1" name="date1">
-        <br><br>
-        <label for="date2">Date et heure de fin:</label>
-        <input type="datetime-local" id="date2" name="date2">
-        <br><br>
-        <button type="button" onclick="calculateDifference()">Calculer la différence</button>
-    </form>
-    <h2 id="result"></h2>
+    <link href="style.css" rel="stylesheet">
+    <div id="page-wrapper">
+        <title>Calcul de frais</title>
+    </head>
+    <body>
+        <header>
+            <h1>Calcul de frais</h1>
+        </header>
+        <form id="dateForm">
+            <label for="date1">Date et heure de début:</label>
+            <input type="datetime-local" id="date1" name="date1">
+            <br><br>
+            <label for="date2">Date et heure de fin:</label>
+            <input type="datetime-local" id="date2" name="date2">
+            <br><br>
+            <button id=btn type="button" onclick="calculateDifference()">Calculer</button>
+        </form>
+        <h2 id="result"></h2>
 
-    <script src="app.js"></script>
-</body>
+        <script src="app.js"></script>
+    </body>
+    </div>
 </html>

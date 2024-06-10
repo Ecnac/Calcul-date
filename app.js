@@ -26,7 +26,8 @@ function calculateDifference() {
         fees = 50;
     }
 
-    document.getElementById('result').textContent =
-        `La différence est de ${days} jours, ${hours} heures et ${minutes} minutes. 
-        Les frais appliqués sont de ${fees}%.`;
+    document.getElementById('result').innerHTML =
+        `${days} jours, ${hours} heures et ${minutes} minutes. 
+        <br />         
+        Frais à ${fees}%.`
 }
