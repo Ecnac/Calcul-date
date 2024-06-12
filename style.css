@@ -67,3 +67,9 @@ button:hover {
     background-color: #00997C;
 }
 
+@-moz-document url-prefix() {
+    #dateForm {
+        display: block;
+    }
+}
+
