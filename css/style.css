@@ -1,0 +1,90 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fafbfa;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #065654;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+#clock {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#dateForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #065654;
+    margin-bottom: 5px;
+}
+
+input {
+    display: flex;
+    height: 20px;
+    border-radius: 15px;
+    border-width: 1px;
+    margin-bottom: 20px;
+}
+
+button {
+    font-size: 14px;
+    height: 26px;
+    width: 150px;
+    border: none;
+    border-radius: 15px;
+    background-color: #065654;
+    color: #BBFFBE;
+    transition: all 50ms ease-in-out;
+    cursor: pointer;
+}
+
+#btn {
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #00997C;
+}
+
+select {
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+#paymentDeadLine {
+    margin-top: -10px;
+}
+
+@-moz-document url-prefix() {
+    #dateForm {
+        display: block;
+    }
+}
