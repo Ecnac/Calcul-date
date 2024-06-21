@@ -82,9 +82,3 @@ select {
 #paymentDeadLine {
     margin-top: -10px;
 }
-
-@-moz-document url-prefix() {
-    #dateForm {
-        display: block;
-    }
-}
