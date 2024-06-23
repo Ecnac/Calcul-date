@@ -1,15 +1,18 @@
 //*************** FEES CALCULATION **************//
 
 const calculateDifference = () => {
-    const now = new Date(); // Date actuelle
+    const currentDateTimeValue = document.getElementById('currentDateTime').value;
     const date2Value = document.getElementById('date2').value;
-    if (!date2Value) {
-        alert('Veuillez entrer une date valide.');
+
+    if (!currentDateTimeValue || !date2Value) {
+        alert('Veuillez entrer des dates valides.');
         return;
     }
+
+    const currentDateTime = new Date(currentDateTimeValue);
     const date2 = new Date(date2Value);
 
-    const diffInMilliseconds = Math.abs(date2 - now);
+    const diffInMilliseconds = Math.abs(date2 - currentDateTime);
     const millisecondsInMinute = 1000 * 60;
     const millisecondsInHour = millisecondsInMinute * 60;
     const millisecondsInDay = millisecondsInHour * 24;
@@ -26,12 +29,13 @@ const calculateDifference = () => {
         Frais à ${fees}%.`;
 }
 
+
 //*************** KEY DATES CALCULATION **************//
 
 const keyDates = () => {
     const travelDateInput = document.getElementById('travelDate').value;
     const service = document.getElementById('services').value;
-    
+
     if (!travelDateInput || !service) {
         alert("Veuillez entrer une date de voyage et sélectionner un service.");
         return;
@@ -42,13 +46,22 @@ const keyDates = () => {
     const diffInDays = (travelDate - currentDate) / (1000 * 60 * 60 * 24);
 
     console.log(`diffInDays: ${diffInDays}`);
-    
+
     let validationDeadLine = document.getElementById('validationDeadLine');
     let paymentDeadLine = document.getElementById('paymentDeadLine');
 
-    const setDeadline = (daysToAdd, targetDate = currentDate, element, includeTime = false) => {
+    const setDeadline = (daysToAdd, targetDate = currentDate, element, includeTime = false, setToNoon = false, customTime = null) => {
         const date = new Date(targetDate);
         date.setDate(date.getDate() + daysToAdd);
+
+        if (setToNoon) {
+            date.setHours(12, 0, 0, 0);
+        }
+
+        if (customTime) {
+            date.setHours(customTime.getHours(), customTime.getMinutes(), 0, 0);
+        }
+
         const options = includeTime ? { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' } : { year: 'numeric', month: 'numeric', day: 'numeric' };
         element.textContent = `${element.id.includes('validation') ? 'Date de validation de devis' : 'Date limite de paiement'}: ${date.toLocaleString(undefined, options)}`;
     };
@@ -65,11 +78,11 @@ const keyDates = () => {
         } else {
             validationDeadLine.textContent = 'Validation de devis immédiate';
         }
-    
+
         if (diffInDays >= 65) {
             setDeadline(-45, travelDate, paymentDeadLine, true);
         } else if (diffInDays >= 30) {
-            setDeadline(20, currentDate, paymentDeadLine, true);
+            setDeadline(20, currentDate, paymentDeadLine, true, false, travelDate);
         } else if (diffInDays >= 12) {
             setDeadline(-10, travelDate, paymentDeadLine, true);
         } else {
@@ -77,6 +90,6 @@ const keyDates = () => {
         }
     } else if (service === "OUIGO") {
         setDeadline(2, currentDate, validationDeadLine);
-        setDeadline(6, currentDate, paymentDeadLine, true);
+        setDeadline(6, currentDate, paymentDeadLine, true, true);
     }
 }
