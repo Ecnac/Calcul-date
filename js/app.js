@@ -28,10 +28,10 @@ const calculateDifference = () => {
         fees = days <= 11 ? 100 : days <= 45 ? 50 : 0;
     }
 
-   /* if (service === "TGV LYRIA") {
-        fees = days <= 11 ? 100 : days <= 29 ? 30 : days <= 45 ? 20 : 0;
+    if (service === "TGV LYRIA") {
+        fees = days <= 7 ? 100 : days <= 29 ? 30 : 20;
     }
-*/
+
     if (service === "TER NOMAD") {
         fees = days <= 11 ? 100 : days <= 29 ? 50 : 0;
     }
