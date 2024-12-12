@@ -24,6 +24,11 @@ const calculateDifference = () => {
     const service = document.getElementById('services').value;
     let fees = days;
 
+    if (service == "") {
+        alert("Veuillez sélectionner un service.");
+        return;
+    }
+
     if (service === "TGV INOUI") {
         fees = days <= 11 ? 100 : days <= 45 ? 50 : 0;
     }
