@@ -24,7 +24,7 @@ const calculateDifference = () => {
     const service = document.getElementById('services').value;
     let fees = days;
 
-    if (service == "") {
+    if (service === "") {
         alert("Veuillez sélectionner un service.");
         return;
     }
