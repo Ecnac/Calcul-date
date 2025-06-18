@@ -79,6 +79,12 @@ select {
     border-radius: 15px;
 }
 
-#paymentDeadLine {
-    margin-top: -10px;
+#result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#paymentDeadLine, #earlyFeesContainer, #partialFeesContainer, #fullFeesContainer {
+    margin-top: -15px;
 }
