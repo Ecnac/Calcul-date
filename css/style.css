@@ -1,4 +1,7 @@
-
+.warning {
+    background-color: #065654;
+    color: #BBFFBE;
+    
 body {
     display: flex;
     flex-direction: column;
