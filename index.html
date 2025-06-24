@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,25 +9,34 @@
 </head>
 <body>
     <header>
-        <h1>Calcul de frais</h1>
+        <h1>Calculateur de frais</h1>
+        <p id="version" >Version du 24/06/2025</p>
         <button id="btn" type="button" onclick="location.href='dates_clés.html'">Dates clés</button>
     </header>
-    <form id="dateForm">
-        <select name="services" id="services">
-            <option value="">Sélectionner un transporteur</option>
-            <option value="TGV INOUI">TGV INOUI</option>
-            <option value="TGV LYRIA">TGV LYRIA</option>
-            <option value="TGV FRANCE-ESPAGNE/ITALIE">TGV FRANCE-ESPAGNE/ITALIE</option>
-            <option value="TER NOMAD">TER NOMAD</option>
-        </select>
-        <label for="currentDateTime">Date et heure du jour:</label>
-        <input type="datetime-local" id="currentDateTime" name="currentDateTime">
-        <label for="date2">Date et heure de départ:</label>
-        <input type="datetime-local" id="date2" name="date2">
-        <button id="btn2" type="button" onclick="calculateDifference()">Calculer</button>
-    </form>
-    <p class="warning"> Application des frais Lyria, valable uniquement pour un devis réalisé en autonomie actuellement </p>
-    <p id="result"></p>
+
+    <label for="services">Sélectionnez un transporteur :</label>
+    <select id="services">
+        <option value="">-- Choisir un transporteur --</option>
+        <option value="TGV INOUI">TGV INOUI</option>
+        <option value="TGV LYRIA">TGV LYRIA</option>
+        <option value="TGV FRANCE-ESPAGNE/ITALIE">TGV FRANCE-ESPAGNE/ITALIE</option>
+        <option value="TER NOMAD">TER NOMAD</option>
+    </select>
+
+
+    <label class="date-label" for="currentDateTime">Première date :</label>
+    <input type="datetime-local" id="currentDateTime">
+
+    <label class="date-label" for="date2">Deuxième date :</label>
+    <input type="datetime-local" id="date2">
+
+    <div id="lyria-options" style="display: none;">
+        <label><input class="sale-input" type="radio" name="lyriaType" value="AGS"> Vente AGS</label>
+        <label><input class="sale-input" type="radio" name="lyriaType" value="VEG"> Vente VEG</label>
+    </div>
+
+    <button onclick="calculateDifference()">Calculer</button>
+    <div id="result"></div>
 
     <script src="./js/app.js"></script>
 </body>
