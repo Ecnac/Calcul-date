@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/normalize.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <title>Dates clés</title>
+</head>
+<body>
+    <header>
+        <h1>Dates Clés</h1>
+        <p id="version" >Version du 11/07/2025</p>
+        <button id="btn" type="button" onclick="location.href='index.html'">Calcul de frais</button>
+    </header>
+
+    <label for="services">Sélectionnez un transporteur :</label>
+    <select name="services" id="services">
+        <option value="">-- Choisissez un transporteur --</option>
+        <option value="TGV INOUI">TGV INOUI</option>
+        <option value="TGV LYRIA">TGV LYRIA</option>
+        <option value="TGV FRANCE-ESPAGNE/ITALIE">TGV FRANCE-ESPAGNE/ITALIE</option>
+        <option value="TER NOMAD">TER NOMAD</option>            
+    </select>
+    <label class="date-label">Date et heure de départ:</label>
+    <input type="datetime-local" id="travelDate" name="date">
+    <!-- <div id="lyria-options" style="display: none;">
+        <label><input class="sale-input" type="radio" name="lyriaType" value="AGS"> Vente AGS</label>
+        <label><input class="sale-input" type="radio" name="lyriaType" value="VEG"> Vente VEG</label>
+    </div> -->
+        <button id="btn2" type="button" onclick="keyDates()">Calculer</button>
+
+    <div id="result">
+        <p id="validationDeadLine"></p>
+        <p id="paymentDeadLine"></p>
+        <p id="earlyFeesContainer"></p>
+        <p id="partialFeesContainer"></p>
+        <p id="fullFeesContainer"></p>
+    </div>    
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
